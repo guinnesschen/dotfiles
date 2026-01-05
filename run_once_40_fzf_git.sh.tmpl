@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if ! command -v git >/dev/null 2>&1; then
+  echo "git not found; install git before running this script."
+  exit 0
+fi
+
+FZF_GIT_DIR="$HOME/.fzf"
+if [ ! -d "$FZF_GIT_DIR/.git" ]; then
+  git clone https://github.com/junegunn/fzf-git.sh.git "$FZF_GIT_DIR"
+fi

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if ! command -v git >/dev/null 2>&1; then
+  echo "git not found; install git before running this script."
+  exit 0
+fi
+
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  git clone https://github.com/ohmyzsh/ohmyzsh.git "$HOME/.oh-my-zsh"
+fi
+
+P10K_DIR="$HOME/.oh-my-zsh/custom/themes/powerlevel10k"
+if [ ! -d "$P10K_DIR" ]; then
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$P10K_DIR"
+fi

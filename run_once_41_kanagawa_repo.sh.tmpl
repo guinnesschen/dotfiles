@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if ! command -v git >/dev/null 2>&1; then
+  echo "git not found; install git before running this script."
+  exit 0
+fi
+
+KANAGAWA_DIR="$HOME/color_themes/kanagawa.nvim"
+if [ ! -d "$KANAGAWA_DIR/.git" ]; then
+  mkdir -p "$HOME/color_themes"
+  git clone https://github.com/rebelot/kanagawa.nvim.git "$KANAGAWA_DIR"
+fi

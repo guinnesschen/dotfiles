@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [ "$(uname -s)" != "Darwin" ]; then
+  exit 0
+fi
+
+PREF_DIR="$HOME/.config/iterm2"
+if [ -L "$PREF_DIR" ]; then
+  rm "$PREF_DIR"
+fi
+mkdir -p "$PREF_DIR"
+
+defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$PREF_DIR"
+defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
+defaults write com.googlecode.iterm2 NoSyncNeverRemind -bool true
