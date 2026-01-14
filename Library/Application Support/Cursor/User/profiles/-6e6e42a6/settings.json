@@ -1,0 +1,94 @@
+{
+    "zenMode.showTabs": "none",
+    "workbench.colorTheme": "Kanagawa Dragon",
+    "workbench.editor.closeEmptyGroups": true,
+    "workbench.editor.showTabs": "none",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "[python]": {
+        "diffEditor.ignoreTrimWhitespace": false,
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "window.commandCenter": false,
+    "workbench.editor.editorActionsLocation": "hidden",
+    "workbench.layoutControl.enabled": false,
+    "editor.renderWhitespace": "none",
+    "editor.lineNumbers": "relative",
+    "zenMode.hideLineNumbers": false,
+    "cursor.composer.shouldAllowCustomModes": true,
+    "files.autoSave": "afterDelay",
+    "workbench.editor.centeredLayoutFixedWidth": true,
+    "workbench.activityBar.location": "hidden",
+    // numbers
+    "editor.lineNumbers": "relative",          // shows absolute on current line, relative elsewhere
+    
+    // clipboard
+    "vim.useSystemClipboard": true,
+    
+    // leader + ctrl keys
+    "vim.leader": "<space>",
+    "vim.useCtrlKeys": true,
+    
+    // surround like tpope
+    "vim.surround": true,
+    
+    // pass certain ctrl-keys to VS Code commands when we want them
+    "vim.handleKeys": {
+        "<C-h>": false,
+        "<C-j>": false,
+        "<C-k>": false,
+        "<C-l>": false,
+        "<C-u>": true,
+        "<C-d>": true
+    },
+    
+    // normal-mode remaps (non-recursive)
+    "vim.normalModeKeyBindingsNonRecursive": [
+        // clear search highlights: <leader>nh -> :nohl<CR>
+        { "before": ["<leader>", "n", "h"], "after": [":", "n", "o", "h", "l", "<CR>"] },
+    
+        // increment/decrement numbers
+        { "before": ["<leader>", "+"], "after": ["<C-a>"] },
+        { "before": ["<leader>", "-"], "after": ["<C-x>"] },
+    
+        // window (editor group) management
+        { "before": ["<leader>", "s", "v"], "commands": ["workbench.action.splitEditorRight"] },
+        { "before": ["<leader>", "s", "h"], "commands": ["workbench.action.splitEditorDown"] },
+        { "before": ["<leader>", "s", "e"], "commands": ["workbench.action.evenEditorWidths"] },
+        { "before": ["<leader>", "s", "x"], "commands": ["workbench.action.closeGroup"] },
+    
+        // tab management
+        { "before": ["<leader>", "t", "o"], "commands": ["workbench.action.files.newUntitledFile"] },
+        { "before": ["<leader>", "t", "x"], "commands": ["workbench.action.closeActiveEditor"] },
+        { "before": ["<leader>", "t", "n"], "commands": ["workbench.action.nextEditor"] },
+        { "before": ["<leader>", "t", "p"], "commands": ["workbench.action.previousEditor"] },
+        { "before": ["<leader>", "t", "f"], "commands": ["workbench.action.duplicateEditor"] },
+    
+        // move between panes with Ctrl-h/j/k/l
+        { "before": ["<C-h>"], "commands": ["workbench.action.focusLeftGroup"] },
+        { "before": ["<C-j>"], "commands": ["workbench.action.focusBelowGroup"] },
+        { "before": ["<C-k>"], "commands": ["workbench.action.focusAboveGroup"] },
+        { "before": ["<C-l>"], "commands": ["workbench.action.focusRightGroup"] },
+    
+        // ctrl-d: scroll DOWN 15 lines, then center
+        { "before": ["<C-d>"], "after": ["1", "5", "j"] },
+
+        // ctrl-u: scroll UP 15 lines, then center
+        { "before": ["<C-u>"], "after": ["1", "5", "k"] }
+    ],
+    
+    // visual-mode remaps (non-recursive)
+    "vim.visualModeKeyBindingsNonRecursive": [
+        // keep selection when indenting / outdenting: map > to >gv and < to <gv
+        { "before": [">"], "after": [">", "g", "v"] },
+        { "before": ["<"], "after": ["<", "g", "v"] },
+    
+        // move selected lines up/down (like your J/K moves)
+        { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
+        { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
+    ],
+    "git.blame.editorDecoration.enabled": false,
+    "git.blame.statusBarItem.enabled": true,
+    "pylint.enabled": false
+}
